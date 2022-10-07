@@ -8,21 +8,26 @@ namespace OOP_basis
 {
     class Circle : GeometricFigure
     {
-        private int radius;
+        private double radius;
 
-        public Circle(int r) : base("Круг")
+        public Circle(double r) : base("Круг")
         {
             radius = r;
         }
 
         public override double Perimeter()
         {
-            return 2 * Math.PI * radius;
+            return Math.Round(2 * Math.PI * radius);
         }
 
-        public override double Square()
+        public override double Space()
         {
-            return Math.PI * Math.Pow(radius, 2);
+            return Math.Round(Math.PI * Math.Pow(radius, 2));
+        }
+
+        public override void GetInfo()
+        {
+            Console.WriteLine($"Фигура {name} с радиусом {radius} имеет периметр равный {Perimeter()}, площадь равную {Space()}");
         }
     }
 }

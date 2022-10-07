@@ -8,6 +8,8 @@ namespace OOP_basis
 {
     class Generator
     {
+        int i;
+
         private int figureIndex;
 
         GeometricFigure figure;
@@ -20,8 +22,12 @@ namespace OOP_basis
 
         public void Generate()
         {
-            int r1;
-            int r2;
+            double r1;
+            double r2;
+            double a;
+            double b;
+            double c;
+
             switch (figureIndex)
             {
                 case 1:
@@ -37,8 +43,46 @@ namespace OOP_basis
                        figure = new Oval(r1, r2);
                     }
 
-                    Console.WriteLine($"Фигура {figure.name} имеет периметр равный {figure.Perimeter():N2} и площадь равную {figure.Square():N2}");
+                    figure.GetInfo();
                     break;
+
+                case 2:
+                    a = random.Next(1, 10);
+                    b = random.Next(1, 10);
+
+                    if (a == b)
+                    {
+                        figure = new Square(a);
+                    }
+                    else
+                    {
+                        figure = new Rectangle(a, b);
+                    }
+
+                    figure.GetInfo();
+                    break;
+
+                case 3: 
+                    a = random.Next(1, 10);
+                    b = random.Next(1, 10);
+                    c = random.Next(1, 10);
+
+                    if ((a + b) > c && (a + c) > b && (b + c) > a)
+                    {
+                        figure = new Triangle(a,b,c);
+                       
+                    }
+                    else
+                    {
+                        Generate();
+                        return;
+                    }
+
+                    figure.GetInfo();
+                    break;
+
+
+                   
             }
         }
     }

@@ -8,17 +8,20 @@ namespace OOP_basis
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
             Random random = new Random();
-            Generator gen = new Generator(1);
+            Generator gen = new Generator(random.Next(1,4));
             for (int i = 0; i < 10; i++)
             {
                 gen.Generate();
             }
 
-            Console.ReadKey();
-
+            int x = Convert.ToInt32(Console.ReadLine());
+            switch (x)
+            {
+                case 1: Main(); break;
+            }
         }
     }
 }

@@ -8,10 +8,10 @@ namespace OOP_basis
 {
     class Oval : GeometricFigure
     {
-        private int radius_1;
-        private int radius_2;
+        private double radius_1;
+        private double radius_2;
 
-        public Oval(int r1, int r2) : base("Овал")
+        public Oval(double r1, double r2) : base("Овал")
         {
             radius_1 = r1;
             radius_2 = r2;
@@ -19,11 +19,15 @@ namespace OOP_basis
 
         public override double Perimeter()
         {
-            return 4 * (Math.PI * radius_1 * radius_2 + (radius_1 - radius_2)) / (radius_1 + radius_2);
+            return Math.Round(4 * (Math.PI * radius_1 * radius_2 + (radius_1 - radius_2)) / (radius_1 + radius_2));
         }
-        public override double Square()
+        public override double Space()
         {
-            return radius_1 * radius_2 * Math.PI;
+            return Math.Round(radius_1 * radius_2 * Math.PI);
+        }
+        public override void GetInfo()
+        {
+            Console.WriteLine($"Фигура {name} с радиусами: {radius_1} и {radius_2} имеет периметр равный {Perimeter()}, площадь равную {Space()}");
         }
     }
 }

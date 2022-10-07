@@ -15,7 +15,7 @@ namespace OOP_basis
             name = n;
         }
 
-        public abstract double Square();
+        public abstract double Space();
         public abstract double Perimeter();
         public abstract void GetInfo();
     }
