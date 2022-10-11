@@ -8,20 +8,21 @@ namespace OOP_basis
 {
     class Generator
     {
-        int i;
+        //int i;
 
         private int figureIndex;
 
-        GeometricFigure figure;
 
-        private Random random = new Random();
-        public Generator(int f)
+        private Random random;
+        public Generator(int f, Random random)
         {
             figureIndex = f;
+            this.random = random;
         }
 
         public void Generate()
         {
+            GeometricFigure figure;
             double r1;
             double r2;
             double a;
@@ -31,16 +32,16 @@ namespace OOP_basis
             switch (figureIndex)
             {
                 case 1:
-                    r1 = random.Next(1, 5);
-                    r2 = random.Next(1, 5);
+                    r1 = random.Next(1, 6);
+                    r2 = random.Next(1, 6);
 
                     if (r1 == r2)
                     {
-                       figure = new Circle(r1); 
+                       figure = new Ellipse(r1); 
                     }
                     else
                     {
-                       figure = new Oval(r1, r2);
+                       figure = new Ellipse(r1, r2);
                     }
 
                     figure.GetInfo();
@@ -52,11 +53,11 @@ namespace OOP_basis
 
                     if (a == b)
                     {
-                        figure = new Square(a);
+                        figure = new Polygon(a);
                     }
                     else
                     {
-                        figure = new Rectangle(a, b);
+                        figure = new Polygon(a, b);
                     }
 
                     figure.GetInfo();
@@ -79,11 +80,9 @@ namespace OOP_basis
                     }
 
                     figure.GetInfo();
-                    break;
-
-
-                   
+                    break;      
             }
+
         }
     }
 }

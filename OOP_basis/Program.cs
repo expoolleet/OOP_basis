@@ -10,11 +10,12 @@ namespace OOP_basis
     {
         static void Main()
         {
+            
+            int n = 10;
             Random random = new Random();
-            Generator gen = new Generator(random.Next(1,4));
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < n; i++)
             {
-                gen.Generate();
+                new Generator(random.Next(1, 4), random).Generate();
             }
 
             int x = Convert.ToInt32(Console.ReadLine());
