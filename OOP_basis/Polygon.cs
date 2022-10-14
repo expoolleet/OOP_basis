@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace OOP_basis
 {
@@ -11,18 +7,19 @@ namespace OOP_basis
         private double a;
         private double b;
 
-        public Polygon(double a) : base("Квадрат")
+        public Polygon(double a, double b) : base("")
         {
-            this.a = a;
-                 b = a;
-        }
-        public Polygon(double a, double b) : base("Прямоугольник")
-        {
+            if (a == b)
+            {
+                name = "Квадрат";
+            }
+            else
+            {
+                name = "Прямоугольник";
+            }
             this.a = a;
             this.b = b;
-        }
-        
-
+        }       
 
         public override double Perimeter()
         {

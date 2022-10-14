@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace OOP_basis
 {
@@ -11,13 +8,16 @@ namespace OOP_basis
         private double radius_1;
         private double radius_2;
 
-        public Ellipse(double r) : base("Круг")
+        public Ellipse(double r1, double r2) : base("")
         {
-            radius_1 = r;
-            radius_2 = r;
-        }
-        public Ellipse(double r1, double r2) : base("Овал")
-        {
+            if (r1 == r2)
+            {
+                name = "Круг";
+            }
+            else
+            {
+                name = "Овал";
+            }
             radius_1 = r1;
             radius_2 = r2;
         }
@@ -39,8 +39,7 @@ namespace OOP_basis
             else
             {
                 Console.WriteLine($"Фигура {name} с радиусами: {radius_1} и {radius_2} имеет периметр равный {Perimeter()}, площадь равную {Square()}");
-            }
-            
+            }           
         }
     }
 }

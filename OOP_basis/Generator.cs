@@ -8,8 +8,6 @@ namespace OOP_basis
 {
     class Generator
     {
-        //int i;
-
         private int figureIndex;
 
 
@@ -35,14 +33,7 @@ namespace OOP_basis
                     r1 = random.Next(1, 6);
                     r2 = random.Next(1, 6);
 
-                    if (r1 == r2)
-                    {
-                       figure = new Ellipse(r1); 
-                    }
-                    else
-                    {
-                       figure = new Ellipse(r1, r2);
-                    }
+                    figure = new Ellipse(r1, r2);
 
                     figure.GetInfo();
                     break;
@@ -51,14 +42,7 @@ namespace OOP_basis
                     a = random.Next(1, 10);
                     b = random.Next(1, 10);
 
-                    if (a == b)
-                    {
-                        figure = new Polygon(a);
-                    }
-                    else
-                    {
-                        figure = new Polygon(a, b);
-                    }
+                    figure = new Polygon(a, b);
 
                     figure.GetInfo();
                     break;
@@ -70,8 +54,7 @@ namespace OOP_basis
 
                     if ((a + b) > c && (a + c) > b && (b + c) > a)
                     {
-                        figure = new Triangle(a,b,c);
-                       
+                        figure = new Triangle(a,b,c);  
                     }
                     else
                     {
@@ -82,7 +65,6 @@ namespace OOP_basis
                     figure.GetInfo();
                     break;      
             }
-
         }
     }
 }
