@@ -7,39 +7,42 @@ namespace OOP_basis
         private double a;
         private double b;
 
-        public Polygon(double a, double b) : base("")
+        public Polygon(double a, double b)
         {
             if (a == b)
             {
-                name = "Квадрат";
+                Name = "Квадрат";
             }
             else
             {
-                name = "Прямоугольник";
+                Name = "Прямоугольник";
             }
             this.a = a;
             this.b = b;
+
+            FigureIndex = 2;
         }       
 
-        public override double Perimeter()
+        public override double PerimeterFunc()
         {
-            return (a + b) * 2;
+            Perimeter = (a + b) * 2;
+            return Perimeter;
         }
-        public override double Square()
+        public override double SquareFunc()
         {
-            return a * b;
+            Square = a * b;
+            return Square;
         }
         public override void GetInfo()
         {
             if (a == b)
             {
-                Console.WriteLine($"Фигура {name} со стороной: {a} имеет периметр равный {Perimeter()}, площадь равную {Square()}");
+                Console.WriteLine($"Фигура {Name} со стороной: {a} имеет периметр равный {PerimeterFunc()}, площадь равную {SquareFunc()}");
             }
             else
             {
-                Console.WriteLine($"Фигура {name} со сторонами: {a} и {b} имеет периметр равный {Perimeter()}, площадь равную {Square()}");
-            }
-           
+                Console.WriteLine($"Фигура {Name} со сторонами: {a} и {b} имеет периметр равный {PerimeterFunc()}, площадь равную {SquareFunc()}");
+            }   
         }
     }
 }
