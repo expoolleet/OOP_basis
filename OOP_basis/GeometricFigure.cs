@@ -1,19 +1,23 @@
 ﻿using System;
 
-
 namespace OOP_basis
 {
-    abstract class GeometricFigure
+    public abstract class GeometricFigure
     {
-        public string name;
+        public int FigureIndex { get; protected set; }
 
-        public GeometricFigure(string n)
-        {
-            name = n;
-        }
+        public string Name { get; protected set; }
 
-        public abstract double Square();
-        public abstract double Perimeter();
+        public double Square { get; protected set; }
+
+        public double Perimeter { get; protected set; }
+
+        public GeometricFigure() { }
+
+        public abstract double SquareFunc();
+
+        public abstract double PerimeterFunc();
+
         public abstract void GetInfo();
     }
 }

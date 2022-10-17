@@ -8,38 +8,46 @@ namespace OOP_basis
         private double radius_1;
         private double radius_2;
 
-        public Ellipse(double r1, double r2) : base("")
+        
+        public Ellipse(double r1, double r2)
         {
             if (r1 == r2)
             {
-                name = "Круг";
+                Name = "Круг";
             }
             else
             {
-                name = "Овал";
+                Name = "Овал";
             }
             radius_1 = r1;
             radius_2 = r2;
+
+            FigureIndex = 1;
         }
 
-        public override double Perimeter()
+        public override double PerimeterFunc()
         {
-            return Math.Round(4 * (Math.PI * radius_1 * radius_2 + Math.Pow((radius_1 - radius_2), 2)) / (radius_1 + radius_2));
+            Perimeter = Math.Round(4 * (Math.PI * radius_1 * radius_2 + Math.Pow((radius_1 - radius_2), 2)) / (radius_1 + radius_2));
+
+            return Perimeter;
         }
-        public override double Square()
+        public override double SquareFunc()
         {
-            return Math.Round(radius_1 * radius_2 * Math.PI);
+            Square = Math.Round(radius_1 * radius_2 * Math.PI);
+
+            return Square;
         }
         public override void GetInfo()
         {
             if (radius_1 == radius_2)
             {
-                Console.WriteLine($"Фигура {name} с радиусам: {radius_1} имеет периметр равный {Perimeter()}, площадь равную {Square()}");
+                Console.WriteLine($"Фигура {Name} с радиусам: {radius_1} имеет периметр равный {PerimeterFunc()}, площадь равную {SquareFunc()}");
             }
             else
             {
-                Console.WriteLine($"Фигура {name} с радиусами: {radius_1} и {radius_2} имеет периметр равный {Perimeter()}, площадь равную {Square()}");
+                Console.WriteLine($"Фигура {Name} с радиусами: {radius_1} и {radius_2} имеет периметр равный {PerimeterFunc()}, площадь равную {SquareFunc()}");
             }           
         }
+
     }
 }

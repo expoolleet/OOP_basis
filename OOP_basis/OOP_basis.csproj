@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Figures.cs" />
     <Compile Include="Generator.cs" />
     <Compile Include="GeometricFigure.cs" />
     <Compile Include="Ellipse.cs" />

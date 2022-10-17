@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace OOP_basis
 {
@@ -10,6 +6,7 @@ namespace OOP_basis
     {
         private int figureIndex;
 
+        GeometricFigure figure;
 
         private Random random;
         public Generator(int f, Random random)
@@ -18,9 +15,8 @@ namespace OOP_basis
             this.random = random;
         }
 
-        public void Generate()
+        public GeometricFigure Generate()
         {
-            GeometricFigure figure;
             double r1;
             double r2;
             double a;
@@ -35,36 +31,29 @@ namespace OOP_basis
 
                     figure = new Ellipse(r1, r2);
 
-                    figure.GetInfo();
                     break;
-
                 case 2:
-                    a = random.Next(1, 10);
+                    a = random.Next (1, 10);
                     b = random.Next(1, 10);
 
                     figure = new Polygon(a, b);
 
-                    figure.GetInfo();
                     break;
-
-                case 3: 
-                    a = random.Next(1, 10);
-                    b = random.Next(1, 10);
-                    c = random.Next(1, 10);
-
-                    if ((a + b) > c && (a + c) > b && (b + c) > a)
+                case 3:
+                    do
                     {
-                        figure = new Triangle(a,b,c);  
-                    }
-                    else
-                    {
-                        Generate();
-                        return;
-                    }
+                        a = random.Next(1, 10);
+                        b = random.Next(1, 10);
+                        c = random.Next(1, 10);
 
-                    figure.GetInfo();
-                    break;      
+                    } while ((a + b) <= c || (a + c) <= b || (b + c) <= a);
+
+                    figure = new Triangle(a, b, c);
+
+                    break;
             }
+
+            return figure;
         }
     }
 }
