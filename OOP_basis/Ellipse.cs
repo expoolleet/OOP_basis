@@ -5,8 +5,8 @@ namespace OOP_basis
 {
     class Ellipse : GeometricFigure
     {
-        private double radius_1;
-        private double radius_2;
+        //private double sideA;
+        //private double sideB;
 
         
         public Ellipse(double r1, double r2)
@@ -19,33 +19,33 @@ namespace OOP_basis
             {
                 Name = "Овал";
             }
-            radius_1 = r1;
-            radius_2 = r2;
+            A = r1;
+            B = r2;
 
             FigureIndex = 1;
         }
 
         public override double PerimeterFunc()
         {
-            Perimeter = Math.Round(4 * (Math.PI * radius_1 * radius_2 + Math.Pow((radius_1 - radius_2), 2)) / (radius_1 + radius_2));
+            Perimeter = Math.Round(4 * (Math.PI * A * B + Math.Pow((A - B), 2)) / (A + B));
 
             return Perimeter;
         }
         public override double SquareFunc()
         {
-            Square = Math.Round(radius_1 * radius_2 * Math.PI);
+            Square = Math.Round(A * B * Math.PI);
 
             return Square;
         }
         public override void GetInfo()
         {
-            if (radius_1 == radius_2)
+            if (A == B)
             {
-                Console.WriteLine($"Фигура {Name} с радиусам: {radius_1} имеет периметр равный {PerimeterFunc()}, площадь равную {SquareFunc()}");
+                Console.WriteLine($"Фигура {Name} с радиусам: {A} имеет периметр равный {PerimeterFunc()}, площадь равную {SquareFunc()}");
             }
             else
             {
-                Console.WriteLine($"Фигура {Name} с радиусами: {radius_1} и {radius_2} имеет периметр равный {PerimeterFunc()}, площадь равную {SquareFunc()}");
+                Console.WriteLine($"Фигура {Name} с радиусами: {A} и {B} имеет периметр равный {PerimeterFunc()}, площадь равную {SquareFunc()}");
             }           
         }
 

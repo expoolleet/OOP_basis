@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Linq;
 
 namespace OOP_basis
@@ -9,19 +10,34 @@ namespace OOP_basis
         {  
             int n = 10;
             Random random = new Random();
+            ArrayList figuresArray = new ArrayList();
 
             GeometricFigure[] figures = new GeometricFigure[n];
 
+
             for (int i = 0; i < n; i++)
             {
-                figures[i] = new Generator(random.Next(1, 4), random).Generate();
+                figuresArray.Add(new Generator(random.Next(1, 4), random).Generate());
             }
 
-            Figures figuresList = new Figures(figures);
+            figuresArray.Sort(); // Сортировка фигур в списке по их периметрам (IComparable)
 
-            foreach(var figure in figuresList)
+            GeometricFigure[] figures = (GeometricFigure[])figuresArray.ToArray(typeof(GeometricFigure)); // Преобразование списка типа Object[] в массив типа GeometricFigure[]
+
+            Figures figuresList = new Figures(figures); // Список из фигур в массиве figures (IEnumerable)
+
+            foreach (GeometricFigure figure in figuresArray) // Просмотр каждого элемента в отсортированном массиве
             {
                 figure.GetInfo();
+            }
+
+            foreach (GeometricFigure figure in figuresArray)
+            {
+                foreach (GeometricFigure figure1 in figuresArray)
+                {
+                    Console.WriteLine(figure.Equals(figure1));
+                }
+                break;
             }
 
             Console.WriteLine("\n\tВсе фигуры с первой буквой К");
@@ -57,10 +73,14 @@ namespace OOP_basis
                 Console.WriteLine();
             }
 
+            Console.WriteLine("\n\tЛюбая фигура, у которой площадь больше 4");
+            var selectedFigureAnySquareMoreThan4 = figures.Where(f => f.Square > 4).FirstOrDefault();
+            selectedFigureAnySquareMoreThan4.GetInfo();
+
             Console.WriteLine("\n\tВсе объекты с площадью не больше 4");
-            var selectedFiguresAllSquareSumLessThan4 = from f4 in figures
-                                                       where f4.Square <= 4
-                                                       select f4;
+            var selectedFiguresAllSquareSumLessThan4 = from f5 in figures
+                                                       where f5.Square <= 4
+                                                       select f5;
             foreach (var figure in selectedFiguresAllSquareSumLessThan4)
             {
                 figure.GetInfo();
@@ -83,6 +103,7 @@ namespace OOP_basis
             switch (x)
             {
                 case "": Main(); break;
+                default: Main(); break;
             }
         }
     }
