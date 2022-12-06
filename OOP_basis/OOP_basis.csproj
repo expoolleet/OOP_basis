@@ -32,6 +32,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>OOP_basis.BankClass.Program</StartupObject>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -43,14 +46,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Figures.cs" />
-    <Compile Include="Generator.cs" />
-    <Compile Include="GeometricFigure.cs" />
-    <Compile Include="Ellipse.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="BankClass\Bank.cs" />
+    <Compile Include="BankClass\Employee.cs" />
+    <Compile Include="BankClass\Person.cs" />
+    <Compile Include="BankClass\Program.cs" />
+    <Compile Include="Geometric Figures\Figures.cs" />
+    <Compile Include="Geometric Figures\Generator.cs" />
+    <Compile Include="Geometric Figures\GeometricFigure.cs" />
+    <Compile Include="Geometric Figures\Ellipse.cs" />
+    <Compile Include="Geometric Figures\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Polygon.cs" />
-    <Compile Include="Triangle.cs" />
+    <Compile Include="Geometric Figures\Polygon.cs" />
+    <Compile Include="Geometric Figures\Triangle.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
